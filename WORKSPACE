@@ -46,8 +46,8 @@ provisioning_profile_repository(
 
 http_archive(
     name = "rules_xcodeproj",
-    integrity = "sha256-KDd0RSV6TgX4LLQ2vq2log9zU/phoqyzkj6gM8UKN6Q=",
-    url = "https://github.com/MobileNativeFoundation/rules_xcodeproj/releases/download/2.5.2/release.tar.gz",
+    integrity = "sha256-eWX4D5buhP8Xjr3dIgGZZCWS1QWM9f+SqZ9elTi9KsU=",
+    url = "https://github.com/MobileNativeFoundation/rules_xcodeproj/releases/download/2.6.1/release.tar.gz",
 )
 
 load(
