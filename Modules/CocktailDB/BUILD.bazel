@@ -1,0 +1,59 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_framework", "ios_unit_test")
+load("@build_bazel_rules_swift//swift:swift_library.bzl", "swift_library")
+load("//:versions.bzl", "MINIMUM_OS_VERSION")
+
+ios_framework(
+    name = "CocktailDB",
+    bundle_id = "com.lucasromanorm.CocktailDB",
+    families = ["iphone"],
+    frameworks = [
+        "//Modules/CocktailDBInterface",
+        "//Modules/NetworkInterface",
+    ],
+    infoplists = ["Sources/Info.plist"],
+    minimum_os_version = MINIMUM_OS_VERSION,
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [":CocktailDB.library"],
+)
+
+swift_library(
+    name = "CocktailDB.library",
+    srcs = glob(["Sources/**/*.swift"]),
+    module_name = "CocktailDB",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//Modules/CocktailDBInterface:CocktailDBInterface.library",
+        "//Modules/NetworkInterface:NetworkInterface.library",
+    ],
+)
+
+ios_unit_test(
+    name = "CocktailDBTests",
+    bundle_id = "com.lucasromanorm.CocktailDBTests",
+    features = [
+        "apple.skip_codesign_simulator_bundles",
+    ],
+    infoplists = ["Tests/Info.plist"],
+    minimum_os_version = MINIMUM_OS_VERSION,
+    runner = "//:default_xctestrun_runner",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":CocktailDBTests.library",
+    ],
+)
+
+swift_library(
+    name = "CocktailDBTests.library",
+    testonly = True,
+    srcs = glob(["Tests/**/*.swift"]),
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":CocktailDB",
+        "//Modules/NetworkInterface:NetworkInterface.library",
+    ],
+    alwayslink = True,
+)

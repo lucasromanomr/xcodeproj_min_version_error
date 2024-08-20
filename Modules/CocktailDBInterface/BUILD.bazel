@@ -1,0 +1,43 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_framework")
+load("@build_bazel_rules_swift//swift:swift_library.bzl", "swift_library")
+load("//:versions.bzl", "MINIMUM_OS_VERSION")
+
+ios_framework(
+    name = "CocktailDBInterface",
+    bundle_id = "com.lucasromanorm.CocktailDBInterface",
+    families = ["iphone"],
+    infoplists = ["Sources/Info.plist"],
+    minimum_os_version = MINIMUM_OS_VERSION,
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [":CocktailDBInterface.library"],
+)
+
+swift_library(
+    name = "CocktailDBInterface.library",
+    srcs = glob(["Sources/**/*.swift"]),
+    module_name = "CocktailDBInterface",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+ios_framework(
+    name = "CocktailDBInterfaceTests",
+    bundle_id = "com.lucasromanorm.CocktailDBInterfaceTests",
+    families = ["iphone"],
+    infoplists = ["Sources/Info.plist"],
+    minimum_os_version = MINIMUM_OS_VERSION,
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [":CocktailDBInterface.library"],
+)
+
+swift_library(
+    name = "CocktailDBInterfaceTests.library",
+    testonly = True,
+    srcs = glob(["Tests/**/*.swift"]),
+    module_name = "CocktailDBInterfaceTests",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [":CocktailDBInterface.library"],
+)
