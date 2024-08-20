@@ -1,0 +1,35 @@
+load("@build_bazel_rules_swift//mixed_language:mixed_language_library.bzl", "mixed_language_library")
+# load("@build_bazel_rules_apple//apple:apple.bzl", "experimental_mixed_language_library")
+
+# experimental_mixed_language_library(
+#     name = "ObjcModule.library",
+#     srcs = glob([
+#         "Sources/**/*.m",
+#         "Sources/**/*.swift",
+#     ]),
+#     hdrs = glob(["Sources/**/*.h"]),
+#     data = [],
+#     enable_header_map = True,
+#     enable_modules = True,
+#     module_name = "ObjcModule",
+#     tags = ["manual"],
+#     visibility = ["//visibility:public"],
+#     deps = [
+#         "//Libs/KeychainAccess",
+#     ],
+# )
+
+mixed_language_library(
+    name = "ObjcModule.library",
+    hdrs = glob(["Sources/**/*.h"]),
+    clang_srcs = glob(["Sources/**/*.m"]),
+    data = [],
+    enable_modules = True,
+    module_name = "ObjcModule",
+    swift_srcs = glob(["Sources/**/*.swift"]),
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//Libs/KeychainAccess",
+    ],
+)

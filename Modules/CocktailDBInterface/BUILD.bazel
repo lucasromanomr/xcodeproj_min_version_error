@@ -1,0 +1,19 @@
+load("@build_bazel_rules_swift//swift:swift_library.bzl", "swift_library")
+
+swift_library(
+    name = "CocktailDBInterface.library",
+    srcs = glob(["Sources/**/*.swift"]),
+    module_name = "CocktailDBInterface",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "CocktailDBInterfaceTests.library",
+    testonly = True,
+    srcs = glob(["Tests/**/*.swift"]),
+    module_name = "CocktailDBInterfaceTests",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [":CocktailDBInterface.library"],
+)
