@@ -1,0 +1,22 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_framework")
+load("@build_bazel_rules_swift//swift:swift_library.bzl", "swift_library")
+load("//:versions.bzl", "MINIMUM_OS_VERSION")
+
+ios_framework(
+    name = "DrinkDomain",
+    bundle_id = "com.lucasromanorm.DrinkDomain",
+    families = ["iphone"],
+    infoplists = ["Sources/Info.plist"],
+    minimum_os_version = MINIMUM_OS_VERSION,
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [":DrinkDomain.library"],
+)
+
+swift_library(
+    name = "DrinkDomain.library",
+    srcs = glob(["Sources/**/*.swift"]),
+    module_name = "DrinkDomain",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)

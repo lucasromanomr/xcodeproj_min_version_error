@@ -1,0 +1,32 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_framework")
+load("@build_bazel_rules_swift//swift:swift_library.bzl", "swift_library")
+load("//:versions.bzl", "MINIMUM_OS_VERSION")
+
+ios_framework(
+    name = "DrinkDiscovery",
+    bundle_id = "com.lucasromanorm.DrinkDiscovery",
+    families = ["iphone"],
+    frameworks = [
+        "//Modules/CommonUI",
+        "//Modules/DrinkDetailsInterface",
+        "//Modules/DrinkDiscoveryInterface",
+    ],
+    infoplists = ["Sources/Info.plist"],
+    minimum_os_version = MINIMUM_OS_VERSION,
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [":DrinkDiscovery.library"],
+)
+
+swift_library(
+    name = "DrinkDiscovery.library",
+    srcs = glob(["Sources/**/*.swift"]),
+    module_name = "DrinkDiscovery",
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//Modules/CommonUI:CommonUI.library",
+        "//Modules/DrinkDetailsInterface:DrinkDetailsInterface.library",
+        "//Modules/DrinkDiscoveryInterface:DrinkDiscoveryInterface.library",
+    ],
+)

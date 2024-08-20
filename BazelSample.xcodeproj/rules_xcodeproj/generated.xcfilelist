@@ -1,0 +1,13 @@
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/CocktailDBInterface/rules_xcodeproj/CocktailDBInterface/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/NetworkInterface/rules_xcodeproj/NetworkInterface/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/CocktailDB/rules_xcodeproj/CocktailDB/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/DrinkDomain/rules_xcodeproj/DrinkDomain/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/DrinkData/rules_xcodeproj/DrinkData/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/CommonUI/rules_xcodeproj/CommonUI/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/DrinkDetailsInterface/rules_xcodeproj/DrinkDetailsInterface/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/DrinkDetails/rules_xcodeproj/DrinkDetails/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/DrinkDiscoveryInterface/rules_xcodeproj/DrinkDiscoveryInterface/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/DrinkDiscovery/rules_xcodeproj/DrinkDiscovery/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/Networking/rules_xcodeproj/Networking/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/BazelSample/rules_xcodeproj/BazelSampleApp/Info.plist
+$(BAZEL_OUT)/ios_sim_arm64-dbg-ios-sim_arm64-min14.0-applebin_ios-ST-f039e5da2c06/bin/Modules/CocktailDB/rules_xcodeproj/CocktailDBTests.__internal__.__test_bundle/Info.plist
