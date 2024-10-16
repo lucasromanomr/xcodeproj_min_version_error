@@ -1,10 +1,12 @@
 load("@build_bazel_rules_apple//apple:resources.bzl", "apple_precompiled_resource_bundle")
 load("@build_bazel_rules_swift//swift:swift_library.bzl", "swift_library")
+load("//:compiled_resource_bundle_rules_ios.bzl", "precompiled_apple_resource_bundle_rules_ios")
 
 swift_library(
     name = "AssetsKit.library",
     srcs = glob(["Sources/**/*.swift"]),
     data = [":AssetsKitResources"],
+    # data = [":AssetsKitResources_rules_ios"],
     module_name = "AssetsKit",
     tags = ["manual"],
     visibility = ["//visibility:public"],
@@ -12,8 +14,17 @@ swift_library(
 
 apple_precompiled_resource_bundle(
     name = "AssetsKitResources",
-    resources = glob(["Sources/**/*.xcassets/**"]),
+    bundle_id = "com.lucasromanomr.AssetsKit_pre_compiled_bundle",
+    resources = [":AssetsKitfileGroup"],
     tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+precompiled_apple_resource_bundle_rules_ios(
+    name = "AssetsKitResources_rules_ios",
+    bundle_id = "com.lucasromanomr.assetskit.resources",
+    infoplists = ["//:resource_bundle.plist"],
+    resources = [":AssetsKitfileGroup"],
     visibility = ["//visibility:public"],
 )
 

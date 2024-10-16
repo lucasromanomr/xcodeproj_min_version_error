@@ -18,9 +18,9 @@ swift_library(
 ios_unit_test(
     name = "CocktailDBTests",
     bundle_id = "com.lucasromanorm.CocktailDBTests",
-    features = [
-        "apple.skip_codesign_simulator_bundles",
-    ],
+#    features = [
+#        "apple.skip_codesign_simulator_bundles",
+#    ],
     infoplists = ["Tests/Info.plist"],
     minimum_os_version = MINIMUM_OS_VERSION,
     tags = ["manual"],
