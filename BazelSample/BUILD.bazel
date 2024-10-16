@@ -41,6 +41,5 @@ swift_library(
         "//Modules/DrinkDomain:DrinkDomain.library",
         "//Modules/NetworkInterface:NetworkInterface.library",
         "//Modules/Networking:Networking.library",
-        "//Modules/ObjcModule:ObjcModule.library",
     ],
 )

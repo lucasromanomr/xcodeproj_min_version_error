@@ -12,6 +12,7 @@ xcodeproj(
     top_level_targets = [
         "//BazelSample:BazelSampleApp",
         "//Modules/CocktailDB:CocktailDBTests",
+        "//Modules/DrinkDetails:DrinkDetailsTests",
     ],
     xcode_configurations = {
         "Debug": {

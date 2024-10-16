@@ -1,4 +1,6 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_unit_test")
 load("@build_bazel_rules_swift//swift:swift_library.bzl", "swift_library")
+load("//:versions.bzl", "MINIMUM_OS_VERSION")
 
 swift_library(
     name = "DrinkDetails.library",
@@ -8,7 +10,34 @@ swift_library(
     tags = ["manual"],
     visibility = ["//visibility:public"],
     deps = [
+        "//Modules/AssetsKit:AssetsKit.library",
         "//Modules/CommonUI:CommonUI.library",
         "//Modules/DrinkDetailsInterface:DrinkDetailsInterface.library",
+    ],
+)
+
+ios_unit_test(
+    name = "DrinkDetailsTests",
+    bundle_id = "com.lucasromanorm.DrinkDetailsTests",
+    features = [
+        "apple.skip_codesign_simulator_bundles",
+    ],
+    infoplists = ["Tests/Info.plist"],
+    minimum_os_version = MINIMUM_OS_VERSION,
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":DrinkDetailsTests.library",
+    ],
+)
+
+swift_library(
+    name = "DrinkDetailsTests.library",
+    testonly = True,
+    srcs = glob(["Tests/**/*.swift"]),
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":DrinkDetails.library",
     ],
 )

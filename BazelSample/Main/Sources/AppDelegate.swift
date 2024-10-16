@@ -1,5 +1,4 @@
 import UIKit
-import ObjcModule
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,12 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        
-        let objcModuleViewController = ObjcModuleViewController()
-        let navigationController = UINavigationController(rootViewController: objcModuleViewController)
-        window?.rootViewController = navigationController
-        
-//        window?.rootViewController = makeRootViewController()
+        window?.rootViewController = makeRootViewController()
         window?.makeKeyAndVisible()
         printBundleProperties()
         return true

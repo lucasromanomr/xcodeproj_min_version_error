@@ -37,8 +37,8 @@ apple_support_dependencies()
 
 http_archive(
     name = "build_bazel_rules_apple",
-    sha256 = "86025f64d723a66438787d089bea4a7bc387877229f927dcb72ee26a8db96917",
-    url = "https://github.com/bazelbuild/rules_apple/releases/download/3.9.2/rules_apple.3.9.2.tar.gz",
+    strip_prefix = "rules_apple-2e45cefc23c1d7744d11be8fa8ba54d48b47465a",
+    urls = ["https://github.com/bazelbuild/rules_apple/archive/2e45cefc23c1d7744d11be8fa8ba54d48b47465a.tar.gz"],
 )
 
 load(

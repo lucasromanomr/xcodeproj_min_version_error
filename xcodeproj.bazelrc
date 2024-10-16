@@ -1,0 +1,9 @@
+# Bazel project
+common:rules_xcodeproj --remote_download_toplevel
+common:rules_xcodeproj --features=swift.use_global_index_store
+common:rules_xcodeproj --features=-swift.vfsoverlay
+
+# Isso existe para separar as caracteristicas de indexação, para separar o profile de index do projeto normal
+build:rules_xcodeproj --profile=/tmp/profile.gz
+build:rules_xcodeproj_indexbuild --profile=
+build:rules_xcodeproj_indexbuild --build_event_json_file=
