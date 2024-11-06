@@ -1,10 +1,15 @@
 load("@build_bazel_rules_apple//apple:ios.bzl", "ios_unit_test")
+load("@build_bazel_rules_apple//apple:resources.bzl", "apple_precompiled_resource_bundle", "apple_resource_bundle")
 load("@build_bazel_rules_swift//swift:swift_library.bzl", "swift_library")
 load("//:versions.bzl", "MINIMUM_OS_VERSION")
 
 swift_library(
     name = "CocktailDB.library",
     srcs = glob(["Sources/**/*.swift"]),
+    data = [
+        ":MyResources",
+        ":MyResources2",
+    ],
     module_name = "CocktailDB",
     tags = ["manual"],
     visibility = ["//visibility:public"],
@@ -15,12 +20,27 @@ swift_library(
     ],
 )
 
+apple_precompiled_resource_bundle(
+    name = "MyResources",
+    resources = glob([
+        "Sources/TesteModel.xcdatamodeld/**",
+    ]),
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
+apple_resource_bundle(
+    name = "MyResources2",
+    resources = glob([
+        "Sources/TesteModel.xcdatamodeld/**",
+    ]),
+    tags = ["manual"],
+    visibility = ["//visibility:public"],
+)
+
 ios_unit_test(
     name = "CocktailDBTests",
     bundle_id = "com.lucasromanorm.CocktailDBTests",
-#    features = [
-#        "apple.skip_codesign_simulator_bundles",
-#    ],
     infoplists = ["Tests/Info.plist"],
     minimum_os_version = MINIMUM_OS_VERSION,
     tags = ["manual"],
